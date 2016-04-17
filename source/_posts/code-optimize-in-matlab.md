@@ -1,15 +1,16 @@
 ---
 title: matlab代码优化
-date: 2016-04-08 23:27:02
+date: 2016-03-08 23:27:02
 categories: MATLAB
 tag: [MATLAB, 代码优化]
 description:
 ---
 
 最近做实验发现跑的时间实在太漫长了，其实主要原因是迭代次数比较大的原因，需要进一步读些paper，找到好的解决方法，但是也感觉对于MATLAB的代码优化还是需要好好掌握一下的，因为之前在做图像处理实验时就发现for循环和向量化之后的性能差异简直一天一地，所以今天google一下，感觉发现新大陆一样[FreeMind][2]的[Recipes for Faster Matlab Code](http://freemind.pluskid.org/programming/recipes-for-faster-matlab-code/)的对k-medoids的一段代码的解释，收获颇丰，要好好的掌握下。原文就不贴了（主要是他搞的太精致了，实在不忍心粘成txt格式的......），自己来总结一下吧。
+<!--more-->
 
--------------------------------------------------------------------------
-## 一个栗子
+
+# 一个栗子
 ``` matlab
 function [label, energy, index] = kmedoids(X,k)
 % X: d x n data matrix
@@ -36,28 +37,28 @@ energy = sum(val);
 	``` MATLAB
 	[X,Y] = meshgrid(-2:.2:2, -4:.4:4);
 	```
-得到的X和Y分别对-2:.2:2和-4:.4:4在行和列上进行了扩展。
+	得到的X和Y分别对-2:.2:2和-4:.4:4在行和列上进行了扩展。
 
 3. randsample(n, k)函数，故名思议，从1：n个数中随机采用k个数（还有几个功能，遇到再整理吧）
 
 4. S = sparse(i,j,s,m,n,nzmax)函数，产生一个稀疏矩阵，使用i,j,s来产生一个m X n的稀疏矩阵，其中S(i(k),j(k)) = s(k),共有nzmax个非零值。
 
-- 建议使用A = logical(sparse(m,n))，不建议使用 A = sparse(false(m,n))，两者结果一样，但是后者生成m×n的临时矩阵，浪费空间，且当m、n很大时，后者不一定能申请成功
+	- 建议使用A = logical(sparse(m,n))，不建议使用 A = sparse(false(m,n))，两者结果一样，但是后者生成m×n的临时矩阵，浪费空间，且当m、n很大时，后者不一定能申请成功
 
-- 由于matlab按照“先行后列”的方式读取数据（即先把第一列所有行读取完以后再读取第二列的各行），因此定义稀疏矩阵时，最好“行数>列数”， 这样有利于寻址和空间的节省
+	- 由于matlab按照“先行后列”的方式读取数据（即先把第一列所有行读取完以后再读取第二列的各行），因此定义稀疏矩阵时，最好“行数>列数”， 这样有利于寻址和空间的节省
 
 5. 最后freemind那篇blog还提到了[profile](http://cn.mathworks.com/help/matlab/ref/profile.html)，主要是用来监测代码性能的工具，需要好好研究研究
 
-------------------------------------------------------------------------
-## 综述（总结）
 
-### 编码技巧
+# 综述（总结）
+
+## 编码技巧
 
 1. **程序语法分析，消除warning项**
 
-- 没有分号结束符，输出会耗时
+	- 没有分号结束符，输出会耗时
 
-- 未初始化变量
+	- 未初始化变量
 
 2. **内存预分配**(循环内大数组预先定义)
 
@@ -74,7 +75,7 @@ energy = sum(val);
 
 23. 在可能的情况下，**使用numeric array或者struct array**，它们的效率大幅度高于cell array（几十倍甚至更多）。对于struct，尽可能使用普通的域（字段，field）访问方式，在非效率关键，执行次数较少，而灵活性要求较高的代码中，可以考虑使用动态名称的域访问。
 
-### 函数：内建函数，.m函数，匿名函数，句柄函数
+## 函数：内建函数，.m函数，匿名函数，句柄函数
 9. **尽量使用MATLAB的内部函数**
 
 10. **利用内置函数自动记录运行结果**
@@ -90,10 +91,10 @@ c) A = shiftdim(A,1);
 
 15. “使用**eval方式**动态存储多个一维数组”比“使用二维数组动态存储多个一维数组”要快，这个没有看太懂，help eval，看到如下代码：
 	```
-expression = input('Enter the name of a matrix: ','s');
-if (exist(expression,'var'))
-	plot(eval(expression))
-end
+	expression = input('Enter the name of a matrix: ','s');
+	if (exist(expression,'var'))
+		plot(eval(expression))
+	end
 	```
 	大概能理解就是判断用户输入的变量是否存在于当前变量空间中。
 	
@@ -110,54 +111,54 @@ end
 19. 最常用的使用**vectorizing技术**的函数有：All、diff、ipermute、permute、reshape、ueeze、y、find、logical、prod、shiftdim、sub2ind、cumsum、ind2sub、ndgrid、repmat、sort、sum 等。
 
 20. 用一个循环建立一个向量，其元素依赖于前一个元素使用的工具：**FILTER, CUMSUM, CUMPROD**
- - filter 
- 优化前： 
+	- filter 
+ 		优化前： 
 
-	```
-A = 1; 
-L = 1000; 
-for i = 1:L 
-  A(i+1) = 2*A(i)+1; 
-end 
-	```
-	优化后： 
-	```
-L = 1000; 
-A = filter([1],[1 -2],ones(1,L+1)); 
-	```
+		```
+		A = 1; 
+		L = 1000; 
+		for i = 1:L 
+		  A(i+1) = 2*A(i)+1; 
+		end 
+		```
+		优化后： 
+		```
+		L = 1000; 
+		A = filter([1],[1 -2],ones(1,L+1)); 
+		```
 
-- cumsum或cumprod函数：如果向量构造只使用加法或乘法
-优化前： 
+	- cumsum或cumprod函数：如果向量构造只使用加法或乘法
+		优化前： 
 
-	``` MATLAB 
-n=10000; 
-V_B=100*ones(1,n); 
-V_B2=100*ones(1,n); 
-ScaleFactor=rand(1,n-1); 
-for i = 2:n 
-	   V_B(i) = V_B(i-1)*(1+ScaleFactor(i-1)); 
-end 
-for i=2:n 
-	   V_B2(i) = V_B2(i-1)+3; 
-end 
-	```
+		``` MATLAB 
+		n=10000; 
+		V_B=100*ones(1,n); 
+		V_B2=100*ones(1,n); 
+		ScaleFactor=rand(1,n-1); 
+		for i = 2:n 
+		   V_B(i) = V_B(i-1)*(1+ScaleFactor(i-1)); 
+		end 
+		for i=2:n 
+		   V_B2(i) = V_B2(i-1)+3; 
+		end 
+		```
 
-	优化后： 
-	``` matlab
-n=10000; 
-V_A=100*ones(1,n); 
-V_A2 = 100*ones(1,n); 
-ScaleFactor=rand(1,n-1); 
-V_A=cumprod([100 1+ScaleFactor]); 
-V_A2=cumsum([100 3*ones(1,n-1)]); 
-	```
+		优化后： 
+		``` matlab
+		n=10000; 
+		V_A=100*ones(1,n); 
+		V_A2 = 100*ones(1,n); 
+		ScaleFactor=rand(1,n-1); 
+		V_A=cumprod([100 1+ScaleFactor]); 
+		V_A2=cumsum([100 3*ones(1,n-1)]); 
+		```
 21. MATLAB的函数调用过程（非built-in function）有显著开销，因此，在效率要求较高的代码中，应该尽可能采用**扁平的调用结构**，也就是在保持代码清晰和可维护的情况下，**尽量直接写表达式和利用built-in function**，避免不必要的自定义函数调用过程。在次数很多的循环体内（包括在cellfun, arrayfun等实际上蕴含循环的函数）形成长调用链，会带来很大的开销。
-> 注：感觉这里好像和上面第三条矛盾了，不过我想应该尽量使用内建函数来实现需求吧，这样既可以减少使用自己建的函数，也可以提升脚本代码的效率。
+	> 注：感觉这里好像和上面第三条矛盾了，不过我想应该尽量使用内建函数来实现需求吧，这样既可以减少使用自己建的函数，也可以提升脚本代码的效率。
 
 22. 在调用函数时，**首选built-in function，然后是普通的m-file函数，然后才是function handle或者anonymous function**。在使用function handle或者anonymous function作为参数传递时，如果该函数被调用多次，最好先用一个变量接住，再传入该变量。这样，可以有效避免重复的解析过程。（其实这条在[matlab代码优化][1]中有举了一个栗子来验证得到的结果）
 
-------------------------------------------
-##Reference：
+
+# Reference
 
 - [FreeMind][2]
 
@@ -172,6 +173,6 @@ V_A2=cumsum([100 3*ones(1,n-1)]);
 - [matlab代码优化][1]，这篇被转了多次好像找不到源主了，有点杂
 
 
------------------------------------------------------
+
 [1]: http://m.blog.csdn.net/article/details?id=29408981
 [2]: http://freemind.pluskid.org
