@@ -2,7 +2,7 @@
 title: lintcode[15] 全排列
 date: 2016-04-17 18:39:20
 categories: Lintcode
-tag: [lintcode, algorithm]
+tag: [lintcode, python, algorithm]
 description:
 ---
 
