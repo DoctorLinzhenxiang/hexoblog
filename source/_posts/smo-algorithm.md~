@@ -335,7 +335,7 @@ if __name__ == '__main__':
 
 # 实验结果分析
 - 线性核函数的分类效果图
-![linear kernel](/img/blog/smo/smo.png)
+![linear kernel](img/blog/smo/smo.png)
 
 这里可能跟博文[1]中的结果不太一样了，主要是由于改变了对于第二变量的选择
 
