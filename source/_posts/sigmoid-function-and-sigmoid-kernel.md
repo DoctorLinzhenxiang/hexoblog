@@ -1,7 +1,13 @@
-﻿# sigmoid function 和 sigmoid kernel
-标签 : machineLearning
+﻿---
+title: sigmoid function 和 sigmoid kernel
+date: 2016-05-03 22:31:56
+categories: [Mathematics]
+tag: [machine learning, mathematics]
+description: 
+---
 
 今天在跟老师讨论多核学习问题时，遇到sigmoid kernel，发现自己记忆的与老师说的好像不一样，然后查了一下，发现原来在形式上是有两种表示形式的，但是本质是相同的。
+<!--more-->
 
 # sigmoid function
 sigmoid function : $$sigmoid(x) = \frac{1}{1+e^{-x}}$$
