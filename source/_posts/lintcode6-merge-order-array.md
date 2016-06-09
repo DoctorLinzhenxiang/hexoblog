@@ -3,7 +3,7 @@ title: lintcode[6] 合并排序数组
 date: 2016-04-05 20:52:49
 categories: Lintcode
 tag: [lintcode, c++, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
@@ -11,7 +11,6 @@ description:
 
 > 给出A=[1,2,3,4]，B=[2,4,5,6]，返回 [1,2,2,3,4,4,5,6]
 
-<!--more-->
 
 # 思路
 这题可以考虑不另外开辟空间，直接先比较两个数组的大小，将小的复制到大的里面，然后返回大的就好，不过这里，vector用的不熟。

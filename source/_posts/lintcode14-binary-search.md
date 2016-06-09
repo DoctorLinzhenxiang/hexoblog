@@ -3,7 +3,7 @@ title: lintcode[14] 二分查找
 date: 2016-04-12 21:24:57
 categories: Lintcode
 tag: [lintcode, python, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
@@ -11,7 +11,6 @@ description:
 
 > 在数组 [1, 2, 3, 3, 4, 5, 10] 中二分查找3，返回2。
 
-<!--more-->
 
 # 思路
 search_idx = (tail + head) / 2 这里不是减法

@@ -3,11 +3,10 @@ title: 在CVX中使用Mosek
 date: 2016-03-11 23:21:47
 categories: MATLAB
 tag: matlab
-description: 
+description: 如题~
 ---
 
 在cvx中默认的[solver][1]是SDT3，解决一般的问题没有问题，但是发现涉及到高维向量（e.p. 求解1000+维向量）的求解时，会很慢，所以尝试换一个solver，以改善性能。目前尝试了Mosek，感觉是比SDT3快点的。搞了一个晚上，总结一下。
-<!--more-->
 
 # 申请academic license
 因为非professional版本的cvx不包含Mosek，所以需要购买，但是对于科研用途，cvx会提供一个license，期限好像是一年。需要填个[表格][2]就ok了。

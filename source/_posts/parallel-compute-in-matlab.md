@@ -3,11 +3,10 @@ title: matlab并行编程
 date: 2016-03-10 23:23:59
 categories: MATLAB
 tag: matlab
-description:
+description: MATLAB并行编程的方法总结
 ---
 
 前几天研究了MATLAB的代码优化，今天来研究一下MATLAB的并行编程（Parallel Programming）。
-<!--more-->
 
 # 一些概念
 

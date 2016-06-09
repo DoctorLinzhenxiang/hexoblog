@@ -3,12 +3,8 @@ title: SMO算法实现
 date: 2016-05-01 23:31:56
 categories: [Machine Learning]
 tag: [machine learning, python]
-description: 
+description: 最近机器学习课上到了支持向量机，这两天把SMO算法实现了一下。
 ---
-
-最近机器学习课上到了支持向量机，这两天把SMO算法实现了一下。
-
-<!--more-->
 
 # 一些理解
 svm的理论部分在很多资料里都有详细的推导过程，这里就不总结了，对于SMO算法，《统计学习方法》中是这样描述的：

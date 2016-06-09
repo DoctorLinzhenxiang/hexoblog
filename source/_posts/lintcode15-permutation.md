@@ -3,7 +3,7 @@ title: lintcode[15] 全排列
 date: 2016-04-17 18:39:20
 categories: Lintcode
 tag: [lintcode, python, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
@@ -14,8 +14,6 @@ For nums = [1,2,3], the permutations are:
    [2,3,1],
    [3,1,2],
    [3,2,1]]
-
-<!--more-->
 
 # 思路
 这题比较简单，不过lintcode平台这题不能用len()函数,所以，需要用enumerate来实现(这里参考了这位[博主](http://blog.csdn.net/u013291394/article/details/50476076#comments)的方法)

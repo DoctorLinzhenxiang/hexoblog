@@ -3,7 +3,7 @@ title: lintcode[12] min stack
 date: 2016-04-10 21:15:33
 categories: Lintcode
 tag: [lintcode, python, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
@@ -12,8 +12,6 @@ description:
 你实现的栈将支持push，pop 和 min 操作，所有操作要求都在O(1)时间内完成。
 
 > 如下操作：push(1)，pop()，push(2)，push(3)，min()， push(1)，min() 返回1，2，1
-
-<!--more-->
 
 # 思路
 搞两个list，一个放原序数，另一个存前i个数的最小值

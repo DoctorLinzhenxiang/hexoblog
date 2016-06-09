@@ -3,12 +3,11 @@ title: manifold learning
 date: 2015-11-25 23:33:43
 categories: Machine Learning
 tag: machine learning
-description: 
+description: 介绍几种经典的流形学习算法
 mathjax: true
 ---
 
 好久好久木有写了，由于时间比较零散，总是感觉没有学到什么东西，也就没什么可写的，最近模式识别课正好有个作业是写一个综述，我选的流形学习，把自己的所学记录下来。
-<!--more-->
 
 # 概括
 流形学习是一种实现非线性降维的方法，这一方法的发展主要得益于2000年Science上两篇文章的发表---ISOMAP和LLE（Local linear embedding）,第一篇主要是对MDS方法的改进，用测地线距离（geodesic diatance）取代了欧氏距离，从全局的角度对高维数据的实现降维。而第二篇正好相反，它主要从局部角度出发，用每个样本点的k临近点来线性表示这个样本点，然后在低维空间中进行重构。

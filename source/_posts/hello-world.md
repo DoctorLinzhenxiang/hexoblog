@@ -3,10 +3,8 @@ title: Hello World
 date: 2016-04-08 23:29:23
 categories: Hexo
 tag: Hexo
-description: 
+description: hexo 初始化博文
 ---
-hexo 初始化博文
-<!-- more-->
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 

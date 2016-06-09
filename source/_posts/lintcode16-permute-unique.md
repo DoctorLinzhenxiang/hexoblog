@@ -3,7 +3,7 @@ title: lintcode[16] 带重复元素的排列
 date: 2016-04-18 21:28:46
 categories: Lintcode
 tag: [lintcode, python, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
@@ -16,7 +16,6 @@ description:
   	[2,2,1]
 	]
 
-<!--more-->
 
 # 思路
 这题与上一题的思路差不多，先给list排序，然后在进行排列

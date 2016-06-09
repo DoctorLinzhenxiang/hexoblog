@@ -3,7 +3,7 @@ title: lintcode[8] 旋转字符串
 date: 2016-04-07 21:01:56
 categories: Lintcode
 tag: [lintcode, c++, algorithm]
-description:
+description: 如题~
 ---
 # 题目描述
 给定一个字符串和一个偏移量，根据偏移量旋转字符串(从左向右旋转)
@@ -13,8 +13,6 @@ description:
 > offset=1 => "gabcdef"
 > offset=2 => "fgabcde"
 > offset=3 => "efgabcd"
-
-<!--more-->
 
 # 思路
 这题主要考虑的是字符串拼接，方法有四种

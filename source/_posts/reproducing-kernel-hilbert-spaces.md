@@ -3,11 +3,8 @@ title: 再生核希尔伯特空间
 date: 2016-05-24 15:24:45
 categories: [Mathematics]
 tag: [mathematics]
-description:
+description: 与再生核希尔伯特空间相关的一些定义及自己的理解
 ---
-
-与再生核希尔伯特空间相关的一些定义及自己的理解
-<!--more-->
 
 # 一些定义
 1. 向量空间(vector space)： 满足加法和标量乘操作的集合

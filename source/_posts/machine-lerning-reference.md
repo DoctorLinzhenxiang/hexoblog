@@ -3,7 +3,7 @@ title: 机器学习推荐资源
 date: 2016-03-02 23:00:40
 categories: Machine Learning
 tag: machine learning
-description: [blogs，articles]
+description: 各种机器学习相关的网络资源
 ---
 
 # 各种机器学习相关的网络资源~

@@ -3,12 +3,8 @@ title: 关于Hexo搭建
 date: 2016-04-17 12:46:04
 categories: Hexo
 tag: Hexo 
-description:
+description: 关于hexo搭建的同步问题
 ---
-
-关于hexo搭建的同步问题
-<!-- more-->
-
 
 # 写在前面的话
 目前hexo搭建静态博客已经很流行了，方便，快捷，而且还有很多主题供大家选择，真是超赞的。不过，由于hexo没有后端，所以，在不同机器上想要实现同步更新博客，就比较麻烦了，不过也有很多解决方案，比如：[利用git解决hexo博客多PC间同步问题](http://chitanda.me/2015/06/18/hexo-sync-in-multiple-pc/)就提供了好几种，我选择的是在github上建一个单独的仓库，将博客源文件备份到上面，这样，在不同电脑上只要git clone下来，然后再进行hexo环境安装就能够实现同步了

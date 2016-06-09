@@ -3,7 +3,7 @@ title: lintcode[4] 丑数
 date: 2016-04-03 20:43:35
 categories: Lintcode
 tag: [lintcode, c++, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
@@ -12,8 +12,6 @@ description:
 
 > 1, 2, 3, 4, 5, 6, 8, 9, 10, 12... 
 > 如果n = 9， 返回 10
-
-<!--more-->
 
 # 思路
 这题最开始的想法就是遍历所有的数，判断该数书不是丑数，但是为超时，所以就要考虑其他方法。

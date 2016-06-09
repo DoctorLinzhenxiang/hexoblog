@@ -3,12 +3,10 @@ title: matlab代码优化
 date: 2016-03-08 23:27:02
 categories: MATLAB
 tag: [matlab, code optimize]
-description:
+description: 各种MATLAB代码优化的奇技淫巧
 ---
 
-最近做实验发现跑的时间实在太漫长了，其实主要原因是迭代次数比较大的原因，需要进一步读些paper，找到好的解决方法，但是也感觉对于MATLAB的代码优化还是需要好好掌握一下的，因为之前在做图像处理实验时就发现for循环和向量化之后的性能差异简直一天一地，所以今天google一下，感觉发现新大陆一样[FreeMind][2]的[Recipes for Faster Matlab Code](http://freemind.pluskid.org/programming/recipes-for-faster-matlab-code/)的对k-medoids的一段代码的解释，收获颇丰，要好好的掌握下。原文就不贴了（主要是他搞的太精致了，实在不忍心粘成txt格式的......），自己来总结一下吧。
-<!--more-->
-
+最近做实验发现跑的时间实在太漫长了，其实主要原因是迭代次数比较大的原因，需要进一步读些paper，找到好的解决方法，但是也感觉对于MATLAB的代码优化还是需要好好掌握一下的，因为之前在做图像处理实验时就发现for循环和向量化之后的性能差异简直一天一地，所以今天google一下，感觉发现新大陆一样[FreeMind][2]的[Recipes for Faster Matlab Code](http://freemind.pluskid.org/programming/recipes-for-faster-matlab-code/)的对k-medoids的一段代码的解释，收获颇丰，要好好的掌握下。原文就不贴了（主要是博主搞的太精致了，实在不忍心粘成txt格式的......），自己来总结一下吧。
 
 # 一个栗子
 ``` matlab

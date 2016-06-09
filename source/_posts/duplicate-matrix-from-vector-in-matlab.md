@@ -3,7 +3,7 @@ title: matlab中将向量复制成矩阵
 date: 2016-02-24 23:29:23
 categories: MATLAB
 tag: matlab
-description: 
+description: 如题~
 ---
 
 # 向量复制成矩阵常用方法是repmat

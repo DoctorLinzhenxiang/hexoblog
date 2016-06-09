@@ -3,12 +3,10 @@ title: Adaboost算法实现
 date: 2016-05-06 22:31:56
 categories: [Machine Learning]
 tag: [machine learning, python]
-description: 
+description: 统计学习方法Adaboost算法例8.1的简单实现
 ---
 
 adaboost算法是经典的boosting算法，今天把李航统计学习方法上面的例8.1实现了一下，虽然看着挺简单的，但实现的时候还是有很多细节需要注意。由于代码是严格按照书上算法流程来敲的，这里就不放算法步骤了。直接上代码吧。
-
-<!--more-->
 
 ```python
 # coding: utf-8

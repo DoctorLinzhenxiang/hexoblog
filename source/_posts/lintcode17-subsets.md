@@ -3,13 +3,12 @@ title: lintcode[17] 子集
 date: 2016-04-20 21:34:34
 categories: Lintcode
 tag: [lintcode, python, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
 给定一个含不同整数的集合，返回其所有的子集
 
-<!--more-->
 
 > 如果 S = [1,2,3]，有如下的解：
 	[

@@ -3,12 +3,11 @@ title: 半连续
 date: 2016-04-29 15:24:45
 categories: [Mathematics]
 tag: [mathematics]
-description:
+description: 关于半连续的一些概念及性质
 ---
 
 # 概念
 半连续（semi-continuity）是对函数连续性的一种描述，与连续相比更弱一些。主要有两种半连续：上半连续（upper semi-continuous）和下半连续（lower semi-continuous）。
-<!-- more -->
 
 # 定义
 

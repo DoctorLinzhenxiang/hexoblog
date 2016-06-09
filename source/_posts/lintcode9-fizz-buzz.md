@@ -3,7 +3,7 @@ title: lintcode[9] fizz buzz问题
 date: 2016-04-08 21:06:03
 categories: Lintcode
 tag: [lintcode, c++, algorithm]
-description:
+description: 如题~
 ---
 
 # 题目描述
@@ -13,7 +13,6 @@ description:
 - 如果这个数被5整除，打印buzz.
 - 如果这个数能同时被3和5整除，打印fizz buzz.
 
-<!--more-->
 
 > 比如 n = 15, 返回一个字符串数组：
 
