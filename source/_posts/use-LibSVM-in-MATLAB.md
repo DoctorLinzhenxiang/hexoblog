@@ -144,6 +144,8 @@ libsvmtrain函数返回训练好的SVM分类器模型，可以用来对未知的
 
 - -Label: 表示数据集中类别的标签，比如二分类常见的1和-1。
 
+- -sv_indices: 表示支持向量对应的样本索引
+
 - -ProbA: 使用-b参数时用于概率估计的数值，否则为空。
 
 - -ProbB: 使用-b参数时用于概率估计的数值，否则为空。
@@ -174,20 +176,64 @@ C = confusionmat(testLabel, predLabel)
 
 # 运用中遇到的一些问题
 
-1. 在svmtrain的参数中，对于核函数类型的选择，参数4比较特殊，是我们自己计算好核矩阵给libsvm来求解，其中有两个注意点：
-    1. 核矩阵的位置--取代原来训练实例矩阵的位置
-    2. 核矩阵需要处理一下：
-    > To use precomputed kernel, you must include sample serial number as the first column of the training and testing data.
+## precomputed kernel
+在svmtrain的参数中，对于核函数类型的选择，参数4比较特殊，是我们自己计算好核矩阵给libsvm来求解，其中有两个注意点：
+1. 核矩阵的位置--取代原来训练实例矩阵的位置
+
+2. 核矩阵需要处理一下：
+
+> To use precomputed kernel, you must include sample serial number as the first column of the training and testing data.
     
-        上面的话用代码来表示：
-    ```matlab
-    K = getKernel(X, Y, options);
-    K = [(1:size(K, 1))', K];
-    model = svmtrain(trainLabel, K, '-t 4');
-    ```
-2. 对于上面precomputed kernel问题，在运用时如果直接按照上面的写法，发现即使用svmpredict来预测，结果也是不理想的，需要将K与train_label相乘：
-$$G = diag(trainLabel) \* K \* diag(trainLabel)$$
-,然后将G放到K的位置上，这样给出的预测结果与我们自己用model算出的结果，用$alpha \* Ktest + b$来与y_test相比较得到的结果一致。这表明，libsvm对于precomputed kernel问题的求解是需要对K进行转换的，而且在用Model的结果自己算精度时也不再需要y_train。
+上面的话用代码来表示：
+
+```matlab
+K = getKernel(X, Y, options);
+K = [(1:size(K, 1))', K];
+model = svmtrain(trainLabel, K, '-t 4');
+```
+
+## libsvmpredict的工作原理
+在应用中，有时我们只需要libsvmtrain的功能，在得到特征向量的信息之后，根据不同的需求来求解精度，而不再需要使用libsvmpredict的功能。这样我们就需要了解通过libsvmtrain求得得model来实现predict得功能。
+
+model的信息上面已经说明了，我们只需要利用好sv得信息：model.sv_indices, model.sv_coef, model.SVs。另外需要注意的是，model.sv_coef是支持向量的系数，相当于`alpha .* y_train`,所以，我们在求解时就不需要再乘`y_train`了,具体的形式为：
+
+$$predLabel = sign(\sum^n\_{i=1} w\_i K(x\_i, x)) + b$$
+
+- 当输入libsvmtrain的是原始样本信息（而不是kernel matrix）
+```matlab
+model = libsvmtrain(y_train, x_train, '-s 0 -t 2 -c 1.2 -g 2.8');
+[predictLabel, accuracy, prob_estimate] = libsvmpredict(y_test, x_test, model);
+
+b = -model.rho;
+sv_mat_sparse = model.SVs;
+sv_mat_full = full(sv_mat_sparse)';
+gamma = model.Parameters(4);
+tmp = @(x, y) (bsxfun(@plus, sum(x.^2, 1).', sum(y.^2, 1)) - 2 * (x' * y));
+RBF = exp(-gamma * tmp(sv_mat_full, x_test));
+pred_label = model.sv_coef' * RBF + b;
+accuracy_self = mean(sign(pred_label') == y_test);
+```
+
+- 当输入libsvmtrain的是precomputed kernel matrix
+```matlab
+train_kernel_mat = exp( -gamma * tmp(x_train, x_train));
+train_kernel_tilde = [(1:size(train_kernel_mat, 1))', train_kernel_mat];
+model = libsvmtrain(y_train, train_kernel_tilde, '-t 4');
+
+test_kernel_mat = exp(-gamma * tmp(x_train, x_test));
+test_kernel_tilde = [(1:size(test_kernel_mat, 1))', test_kernel_mat];
+[predictLabel, accuracy, prob_estimate] = libsvmpredict(y_test, test_kernel_tilde, model);
+
+b = -model.rho;
+sv_mat = x_train(:, model.sv_indices');
+gamma = model.Parameters(4);
+RBF = exp(-gamma * tmp(sv_mat, x_test));
+pred_label = model.sv_coef' * RBF + b;
+accuracy_self = mean(sign(pred_label') == y_test);
+```
+
+我们会发现`accuracy_self`和`accuracy`的值是一样的。
+
 
 # reference
 [1] : [林智仁Libsvm主页][1]

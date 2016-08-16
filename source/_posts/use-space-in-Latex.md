@@ -1,8 +1,8 @@
 ---
 title: LaTex中空格的用法
 date: 2016-06-28 23:21:47
-categories: LaTex
-tag: LaTex
+categories: Latex
+tag: Latex
 description: Letex中空格的用法
 ---
 
@@ -12,7 +12,7 @@ quad空格&ensp;&ensp;&ensp;&ensp;&ensp;`a \quad b`&ensp;$a \quad b$&ensp;一个
 中等空格&ensp;&ensp;&ensp;&ensp;&ensp;`a\;b`&ensp;$a\;b$&ensp;2/7m宽度
 小空格&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`a\,b`&ensp;$a\,b$&ensp;1/6m宽度
 没有空格&ensp;&ensp;&ensp;&ensp;&ensp;`ab`&ensp;$ab\,$	
-紧贴&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`a\!b`&ensp;$a\!b$&ensp;缩进1/6m宽度
+紧贴&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;`a\!b`&ensp;$a\\!b$&ensp;缩进1/6m宽度(在hexo中需要写成`a\\!b`)
 
 > approximately the width of an "M" in the current font
 
