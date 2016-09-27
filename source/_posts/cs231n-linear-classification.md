@@ -14,12 +14,12 @@ $$f(x_i;W,b)=Wx_i + b$$
 
 ## 结果向量 $f(x_i;W,b)$ 中值的大小
 
-![](http://cs231n.github.io/assets/imagemap.jpg)
+![](/img/blog/deeplearning/imagemap.jpg)
 
 上图表示判定样例$x_i$是属于各种类别的得分情况，向量$f(x_i;W,b)$的值来看此样例小猫被判定到了狗狗的类别中，所以分类错误，需要进一步的学习。
 ## 权重矩阵$W$的每一行都是一个template
 
-![](http://cs231n.github.io/assets/templates.jpg)
+![](/img/blog/deeplearning/templates.jpg)
 
 上图是通过将权重矩阵$W$中每一行reshape后画出来的图像，我们其实可以粗略的判断出一些类别，比如第二幅图是一辆偏粉红色的小汽车，表明，我们数据集中的小汽车颜色可能都偏红色，倒数第三章是有左右两个头的马儿，其实这跟训练数据集有关，可能数据集中包含了两个方向的马儿图片。
 在分类时，其实是将样例与template进行内积运算以判断与template的距离，与相近则值越大。

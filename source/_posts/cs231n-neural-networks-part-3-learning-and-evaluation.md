@@ -80,7 +80,7 @@ x += v # integrate position
 	Nesterov动量的核心思路是,当参数向量位于某个位置 $x$ 时,观察上面的动量更新公式可以发现,动量部分(忽视带梯度的第二个部分)会通过 mu \* v 稍微改变参数向量。因此,如果要计算梯度，那么可以将未来的近似位置 x + mu \* v 看做是“向前看”,这个点在我们一会儿要停止的位置附近.因此,计算 x + mu \* v 的梯度而不是“旧”位置x的梯度就有意义了.
 
 	可以通过下图来感受一下：
-![momentum and Nesterov momentum update](http://cs231n.github.io/assets/nn3/nesterov.jpeg)
+![momentum and Nesterov momentum update](/img/blog/deeplearning/nesterov.jpeg)
 	对应的更新公式为：
 	```python
 	x_ahead = x + mu * v
@@ -140,8 +140,8 @@ x += v # integrate position
 	注意这个更新方法看起来真的和RMSProp很像，除了使用的是平滑版的梯度m，而不是用的原始梯度向量dx。论文中推荐的参数值eps=1e-8, beta1=0.9, beta2=0.999。在实际操作中，我们推荐Adam作为默认的算法，一般而言跑起来比RMSProp要好一点。但是也可以试试SGD+Nesterov动量。完整的Adam更新算法也包含了一个偏置（bias）矫正机制，因为m,v两个矩阵初始为0，在没有完全热身之前存在偏差，需要采取一些补偿措施。建议读者可以阅读论文查看细节，或者课程的PPT。
 
 	课程中给出两个动图来显示不同的学习率下优化性能的比较：
-![Contours of a loss surface and time evolution of different optimization algorithms](http://cs231n.github.io/assets/nn3/opt2.gif)
-![A visualization of a saddle point in the optimization landscape, where the curvature along different dimension has different signs](http://cs231n.github.io/assets/nn3/opt1.gif)
+![Contours of a loss surface and time evolution of different optimization algorithms](/img/blog/deeplearning/opt2.gif)
+![A visualization of a saddle point in the optimization landscape, where the curvature along different dimension has different signs](/img/blog/deeplearning/opt1.gif)
 
 # Hyperparameter optimization
 1. 实现

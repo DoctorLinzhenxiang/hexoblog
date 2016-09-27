@@ -34,7 +34,7 @@ description:
 函数形式:
 $$f(x) = \max(0, x)$$
 函数图像：
-![ReLU](http://cs231n.github.io/assets/nn1/relu.jpeg)
+![ReLU](/img/blog/deeplearning/relu.jpg)
 根据函数图像易知，当 $x <= 0$ 时，函数值为0；当 $x > 0$时，函数斜率为1.
 
 *优点*：
@@ -49,7 +49,7 @@ $$f(x) = \max(0, x)$$
 $$f(x)=\mathbb{I}(x<0) (\alpha x) + \mathbb{I}(x\geq 0) (x)$$
 
 函数图像：
-![Leaky ReLU](http://upload-images.jianshu.io/upload_images/2301760-576db63c7825ffcf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![Leaky ReLU](/img/blog/deeplearning/leaky_relu.png)
 根据函数图像，可以看出Leaky ReLU是对ReLU的一个改进，当 $x<=0$ 时，函数给出一个很小的负数梯度量
 
 **PReLU** (Delving Deep into Rectifiers, Kaiming He, 2015)
@@ -70,7 +70,7 @@ $$f(x) = \max(W_1^T x + b_1, W^T_2 x + b_2)$$
 1. 层的结构
 神经网络模型是通过层状无环结构组成，比如全连接层结构。
 其次，通常所说的几层神经网络是不连输入层的，比如下图为3层神经网络。
-![3-layer NN](http://cs231n.github.io/assets/nn1/neural_net2.jpeg)
+![3-layer NN](/img/blog/deeplearning/neural_net2.jpeg)
 
 2. 前向传播
 一般是先进行一个矩阵乘法，然后加上偏置并运用激活函数来实现。

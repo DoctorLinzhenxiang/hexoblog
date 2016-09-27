@@ -41,7 +41,7 @@ code：
 
 下面三幅图片分别描述原始数据，去相关性的数据，和白化后的数据。
 
-![](http://cs231n.github.io/assets/nn2/prepro2.jpeg)
+![](/img/blog/deeplearning/prepro2.jpeg)
 
 在实际的操作中，对于卷积神经网络，PCA/白化技术运用的并不多，通常会将数据进行零中心化处理。
 
@@ -71,7 +71,7 @@ code：
 
 6. [Batch Normalization](http://arxiv.org/pdf/1502.03167v3.pdf): 在网络的每一层之前都做预处理，只是这种操作以另一种方式与网络集成在一起。
 下图给出了Batch Normalization的具体形式：
-![batch normalization](http://upload-images.jianshu.io/upload_images/2301760-ebbfe8659b9e6b27.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![batch normalization](/img/blog/deeplearning/batch_normalization.png)
 
 ## Regularization
 1. $L_2$规则化：   $\frac{1}{2}\lambda w^2$
@@ -90,7 +90,7 @@ code：
 让神经元以超参数p的概率被激活或被设置为0
 这属于网络在前向传播中有随机行为的方法
 
-![Dropout](http://cs231n.github.io/assets/nn2/dropout.jpeg)
+![Dropout](/img/blog/deeplearning/dropout.jpeg)
 	上图表示Dropout方法的具体形式，下面给出对应的代码逻辑：
 code:
 ```python
