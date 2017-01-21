@@ -2,8 +2,8 @@
 menu:
   Home: /
   Archives: /archives
-  Reference: /reference
-  About: /about
+  #Reference: /reference
+  Me: /about
 ## you can create `tags` and `categories` folders in `../source`.
 ## And create a `index.md` file in each of them.
 ## set `front-matter`as
@@ -45,7 +45,7 @@ highlight_theme: night
 
 #### index post is expanding or not 
 index:
-  expand: true           ## default is unexpanding,so you can only see the short description of each post.
+  expand: false           ## default is unexpanding,so you can only see the short description of each post.
   excerpt_link: Read More  
 
 close_aside: true  #close sidebar in post page if true
@@ -75,13 +75,14 @@ author:
 
 #### Toc
 toc:
-  article: true   ## show contents in article.
-  aside: true     ## show contents in aside.
+  article: false   ## show contents in article.
+  aside: false     ## show contents in aside.
 ## you can set both of the value to true of neither of them.
 ## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
 
 #### Links  #Jark's Blog: http://wuchong.me
 links:
+  PALM主页: http://palm.seu.edu.cn/
   李狗蛋师兄: http://www.lifuhao.cn/
   张致恺博客: http://zhikaizhang.cn/
   李华繁博客: http://ihuafan.com/

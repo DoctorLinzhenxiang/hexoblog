@@ -1,5 +1,5 @@
 ---
-title: methods on optimizing large-scale SVM problems
+title: Methods on optimizing large-scale SVM problems
 date: 2016-11-03 11:14:47
 categories: [Machine Learning]
 tag: [Optimization, Machine Learning]

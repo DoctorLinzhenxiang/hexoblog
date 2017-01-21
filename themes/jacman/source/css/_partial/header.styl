@@ -7,9 +7,6 @@ body
     else
       background color-theme
     color color-white
-    padding 1em 0 0.8em 
-    @media tablet
-      padding 1.8em 0 1.5em
     >div
       width 95%
       margin 0 auto
@@ -38,9 +35,11 @@ body
 
 #textlogo
   /*float left*/
-  text-align center
-  width 75%
-  margin auto
+  /*text-align center*/
+  /*width 75%*/
+  /*margin auto*/
+  margin-left 15em
+  width 15em
   h1.site-name
     width 86%
     if ShowCustomFont
@@ -64,6 +63,8 @@ body
   h2.blog-motto
     width 86%
     font-size 0.7em
+    margin-bottom 0.5em
+    margin-left 2.5em
     font-weight normal
     @media mini
       font-size font-size
@@ -95,17 +96,17 @@ header nav
   @media tablet
     float right
     width auto
-    margin-top 1em
+    margin-top -3.5em
+    margin-right 15em
     max-height none
   font-size font-size+12.5
-  padding-top 0.5em
   max-height 0.01em
   transition max-height 1s ease-out
   ul
     @media tablet
       float right
       position: relative;
-      left: -30%;
+      /*left: -30%*/
   ul li
     @media tablet
       float left
