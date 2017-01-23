@@ -21,7 +21,7 @@ description:
 
 # widget部分
 
-- 将tag改成了tag cloud。原tag功能虽有个数统计，但有点与上面的categoy重复，改成tag cloud通过大小来展示tag使用频次，比较醒目，也更科技感（虽然只是改了一个config Orz...）
+- 将tag改成了tag cloud。原tag功能虽有个数统计，但有点与上面的category重复，改成tag cloud通过大小来展示tag使用频次，比较醒目，也更科技感（虽然只是改了一个config Orz...）
 
 # footer部分
 
