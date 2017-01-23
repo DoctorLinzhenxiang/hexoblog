@@ -1,8 +1,17 @@
 <% if (site.tags.length){ %>
   <div class="tagcloudlist">
-    <p class="asidetitle"><%= __('tagcloud') %></p>
+    <!--<p class="asidetitle"><%= __('tagcloud') %></p>-->
+    <p class="asidetitle">Tags</p>
     <div class="tagcloudlist clearfix">
-       <%- tagcloud() %>
+    	<%- tagcloud() %>
+
+       	<!--<%- tagcloud(site.tags, {
+                                min_font: 8,
+                                max_font: 23, 
+                                color: true ,
+                                start_color: '#000000',
+                                end_color: '#00f800'
+        	    }) %>-->
     </div>
   </div>
 <% } %>

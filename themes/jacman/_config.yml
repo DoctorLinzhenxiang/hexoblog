@@ -15,7 +15,7 @@ menu:
 widgets: 
 #- github-card
 - category
-- tag
+- tagcloud
 - links
 #- douban
 #- rss
@@ -53,7 +53,7 @@ mathjax: true      #enable mathjax if true
 
 ### Creative Commons License Support, see http://creativecommons.org/ 
 ### you can choose: by , by-nc , by-nc-nd , by-nc-sa , by-nd , by-sa , zero
-creative_commons: none
+creative_commons: by-nc
 
 #### Author information
 author:
@@ -64,9 +64,9 @@ author:
   tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
   douban:     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
   zhihu:      ## e.g. jark  for http://www.zhihu.com/people/jark
-  email: heimingx@gmail.com     ## e.g. imjark@gmail.com
+  email: heimingx@seu.edu.com     ## e.g. imjark@gmail.com
   twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
-  github: heimingx    ## e.g. wuchong for https://github.com/wuchong
+  github: HeimingX    ## e.g. wuchong for https://github.com/wuchong
   facebook:   ## e.g. imjark for https://facebook.com/imjark
   linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
   google_plus:    ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
@@ -75,7 +75,7 @@ author:
 
 #### Toc
 toc:
-  article: false   ## show contents in article.
+  article: true   ## show contents in article.
   aside: false     ## show contents in aside.
 ## you can set both of the value to true of neither of them.
 ## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
@@ -83,9 +83,10 @@ toc:
 #### Links  #Jark's Blog: http://wuchong.me
 links:
   PALM主页: http://palm.seu.edu.cn/
-  李狗蛋师兄: http://www.lifuhao.cn/
+  李狗蛋师兄 (腾讯): http://www.lifuhao.cn/
   张致恺博客: http://zhikaizhang.cn/
   李华繁博客: http://ihuafan.com/
+  葛治文博客: http://blog.frankge.me/
 
 
 
