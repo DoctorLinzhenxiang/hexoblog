@@ -27,7 +27,7 @@ Hobby:
 
 # 联系我
 
-- 邮箱: heimingx@seu.edu.cn
+- 邮箱: heimingx AT seu.edu.cn
 - QQ: 1023694685
 - 微博: [明歌天下](http://weibo.com/heimingx)
 - github: [HeimingX](https://github.com/HeimingX)
