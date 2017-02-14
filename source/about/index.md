@@ -7,6 +7,10 @@ date: 2016-04-17 14:07:21
 
 Hi! 我是胥海明，目前在东南大学cs读研，专业方向是Machine Learning，平时关注各种好玩的技术，喜欢折腾，搭建这个博客的目的是为了记录下自己成长的轨迹，也渴望能够通过这个平台与你交流，共同学习进步 ^_^
 
+曝一张皂片，拍摄于AAAI’17 poster session.
+
+![poster](/img/blog/aaai/poster.jpg)
+
 # TODO清单
 
 Reading:
